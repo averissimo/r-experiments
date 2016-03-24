@@ -25,12 +25,12 @@ h <- function(x,a,k) {
 
 # after n = 5 it starts to 
 # show plots of approximation
-len <- 1:9
+len <- 1:12
 par(mfrow=c(2,2))
 
 for ( i in len) {
   plot(xdata, f(xdata)    , xlim = c(-2,2), ylim = c(0, f(xdata[length(xdata)]) ), type = 'l', ylab = '', xlab ='', col = 'red')
   par(new=T)
   plot(xdata, h(xdata,0,i), xlim = c(-2,2), ylim = c(0, f(xdata[length(xdata)]) ), ylab = 'y', xlab = 'x')
-  title(paste0('n = ', i, ' (residuals = ', sum(abs(f(xdata) - h(xdata,0,i))) ,')'))
+  title(paste0('n = ', i, ' (residuals = ', format(sum(abs(f(xdata) - h(xdata,0,i))), scientific = TRUE) ,')'))
 }
